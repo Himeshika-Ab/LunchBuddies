@@ -1,4 +1,4 @@
-package com.ctse.lunchbuddies;
+package com.ctse.whoshungry;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

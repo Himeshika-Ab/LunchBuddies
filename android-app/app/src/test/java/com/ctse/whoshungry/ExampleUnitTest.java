@@ -1,4 +1,4 @@
-package com.ctse.lunchbuddies;
+package com.ctse.whoshungry;
 
 import org.junit.Test;
 

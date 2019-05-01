@@ -1,4 +1,4 @@
-package com.ctse.lunchbuddies;
+package com.ctse.whoshungry;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.ctse.lunchbuddies", appContext.getPackageName());
+        assertEquals("com.ctse.whoshungry", appContext.getPackageName());
     }
 }
