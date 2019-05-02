@@ -7,33 +7,114 @@
     >
 
     <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="82dp"
-        android:layout_height="60dp"
-        android:src="@drawable/logo"
-        android:background="#F95B31"/>
+        android:id="@+id/wallpaper2"
+        android:layout_width="match_parent"
+        android:layout_height="483dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="248dp"
+        android:background="#F95B31" />
 
-    <TextView
-        android:layout_width="333dp"
-        android:layout_height="60dp"
-        android:layout_alignRight="@+id/imageView1"
-        android:layout_marginLeft="82dp"
-        android:layout_marginRight="-329dp"
-        android:background="#F95B31"
-        android:fontFamily="casual"
-        android:gravity="center_vertical"
-        android:text="  Who's Hungry"
-        android:textColor="#ffffff"
-        android:textSize="28dp"
-        android:textStyle="bold" />
 
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
         android:layout_marginLeft="135dp"
-        android:layout_marginBottom="500dp"
+        android:layout_marginBottom="516dp"
         android:src="@drawable/ic_account_circle_black_24dp" />
+
+    <EditText
+        android:id="@+id/userprofilename"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="75dp"
+        android:layout_marginBottom="-90dp"
+        android:drawableLeft="@drawable/name_24dp"
+        android:fontFamily="sans-serif"
+        android:hint="   Name"
+        android:textColorHint="#fceae5"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+
+    <EditText
+        android:id="@+id/userprofileemail"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/userprofilename"
+        android:layout_marginLeft="75dp"
+        android:layout_marginBottom="-73dp"
+        android:layout_centerHorizontal="true"
+        android:drawableLeft="@drawable/ic_email_24dp"
+        android:ems="12"
+        android:fontFamily="sans-serif"
+        android:hint="   Email"
+        android:inputType="textEmailAddress"
+        android:textColorHint="#fceae5"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <EditText
+        android:id="@+id/userprofilecontactNo"
+        android:layout_width="256dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/userprofileemail"
+        android:layout_marginLeft="75dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-73dp"
+        android:hint="   ContactNo"
+        android:textColorHint="#fceae5"
+        android:drawableLeft="@drawable/ic_phone_iphone_black_24dp"
+        android:fontFamily="sans-serif"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:typeface="sans"/>
+
+    <Button
+        android:id="@+id/savedetails"
+        android:layout_width="226dp"
+        android:layout_height="62dp"
+        android:layout_alignBottom="@+id/userprofilecontactNo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginBottom="-143dp"
+        android:background="#F95B31"
+        android:fontFamily="sans-serif"
+        android:text="Save Changes"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+    <Button
+        android:id="@+id/removeaccount"
+        android:layout_width="226dp"
+        android:layout_height="61dp"
+        android:layout_alignRight="@id/savedetails"
+        android:layout_alignBottom="@+id/userprofilecontactNo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginRight="-2dp"
+        android:layout_marginBottom="-221dp"
+        android:background="#F95B31"
+        android:fontFamily="sans-serif"
+        android:text="Remove Account"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
 
 </RelativeLayout>
