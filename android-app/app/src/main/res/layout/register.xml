@@ -6,23 +6,39 @@
     android:layout_height="match_parent"
     >
 
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="175dp"
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_marginRight="-329dp"
+        android:background="#F95B31"
+        android:fontFamily="casual"
+        android:gravity="center_vertical"
+        android:textColor="#ffffff"
+        android:textSize="28dp"
+        android:textStyle="bold" />
+
+
     <ImageView
         android:id="@+id/logo"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_alignParentBottom="true"
         android:layout_marginLeft="135dp"
-        android:layout_marginBottom="527dp"
+        android:layout_marginBottom="559dp"
+        android:layout_centerHorizontal="true"
         android:src="@drawable/ic_account_circle_black_24dp" />
 
     <TextView
         android:id="@+id/namelbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/logo"
+        android:layout_alignBottom="@id/header"
         android:layout_marginLeft="175dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="-27dp"
+        android:layout_marginBottom="-44dp"
         android:fontFamily="sans-serif"
         android:text="Name"
         android:textAlignment="center"
@@ -69,8 +85,8 @@
         android:layout_alignRight="@id/emaillbl"
         android:layout_alignBottom="@+id/logo"
         android:layout_marginLeft="110dp"
-        android:layout_marginRight="-86dp"
-        android:layout_marginBottom="-153dp"
+        android:layout_marginRight="-85dp"
+        android:layout_marginBottom="-170dp"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
         android:textAlignment="center"
@@ -102,7 +118,7 @@
         android:layout_alignBottom="@+id/logo"
         android:layout_marginLeft="110dp"
         android:layout_marginRight="-86dp"
-        android:layout_marginBottom="-227dp"
+        android:layout_marginBottom="-248dp"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
         android:textAlignment="center"
@@ -133,8 +149,8 @@
         android:layout_alignRight="@id/passwordlbl"
         android:layout_alignBottom="@+id/logo"
         android:layout_marginLeft="110dp"
-        android:layout_marginRight="-61dp"
-        android:layout_marginBottom="-303dp"
+        android:layout_marginRight="-63dp"
+        android:layout_marginBottom="-321dp"
         android:ems="10"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
@@ -168,8 +184,8 @@
         android:layout_alignRight="@id/confirmpwlbl"
         android:layout_alignBottom="@+id/logo"
         android:layout_marginLeft="110dp"
-        android:layout_marginRight="-20dp"
-        android:layout_marginBottom="-376dp"
+        android:layout_marginRight="-21dp"
+        android:layout_marginBottom="-393dp"
         android:ems="10"
         android:fontFamily="sans-serif"
         android:gravity="center_horizontal"
@@ -197,6 +213,8 @@
         android:textStyle="bold"
         android:typeface="serif"
         android:text="Register" />
+
+
 
 
 </RelativeLayout>

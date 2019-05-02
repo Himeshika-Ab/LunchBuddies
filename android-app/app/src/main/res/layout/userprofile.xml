@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="82dp"
+        android:layout_height="60dp"
+        android:src="@drawable/logo"
+        android:background="#F95B31"/>
+
+    <TextView
+        android:layout_width="333dp"
+        android:layout_height="60dp"
+        android:layout_alignRight="@+id/imageView1"
+        android:layout_marginLeft="82dp"
+        android:layout_marginRight="-329dp"
+        android:background="#F95B31"
+        android:fontFamily="casual"
+        android:gravity="center_vertical"
+        android:text="  Who's Hungry"
+        android:textColor="#ffffff"
+        android:textSize="28dp"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="135dp"
+        android:layout_marginBottom="500dp"
+        android:src="@drawable/ic_account_circle_black_24dp" />
+
+</RelativeLayout>
