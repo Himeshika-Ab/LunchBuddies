@@ -23,16 +23,27 @@ var userController = function () {
         });
     }
 
-    // //get all registered students from the db
-    // this.getStudents = function () {
-    //     return new Promise(function (resolve, reject) {
-    //         StudentSchema.find().exec().then(function (studentData) {
-    //             resolve({status: 200, data: studentData});
-    //         }).catch(function (reason) {
-    //             reject({status: 500, message:'Error occured'+ reason});
-    //         });
-    //     });
-    // }
+    //update student details
+    this.updateUser = function (id, u) {
+        return new Promise(function (resolve, reject) {
+            UserSchema.update({_id: id}, u).then(function () {
+                resolve({status: 200, message: 'User details updated'});
+            }).catch(function (reason) {
+                reject({status: 500, message:'Error occured'+ reason});
+            });
+        });
+    }
+
+    //get all registered students from the db
+    this.getUsers = function () {
+        return new Promise(function (resolve, reject) {
+            UserSchema.find().exec().then(function (u) {
+                resolve({status: 200, data: u});
+            }).catch(function (reason) {
+                reject({status: 500, message:'Error occured'+ reason});
+            });
+        });
+    }
     //
     // //getting a single student by id
     // this.getStudent = function (id) {
@@ -56,16 +67,6 @@ var userController = function () {
     //     });
     // }
     //
-    // //update student details
-    // this.updateStudent = function (id, student) {
-    //     return new Promise(function (resolve, reject) {
-    //         StudentSchema.update({_id: id}, student).then(function () {
-    //             resolve({status: 200, message: 'Student details updated'});
-    //         }).catch(function (reason) {
-    //             reject({status: 500, message:'Error occured'+ reason});
-    //         });
-    //     });
-    // }
     //
     // //deleting students
     // this.deleteStudent = function (id) {

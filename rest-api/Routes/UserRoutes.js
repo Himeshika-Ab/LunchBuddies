@@ -13,6 +13,24 @@ router.post('/addUser', function (req, res) {
     });
 });
 
+//HTTP method: PUT , inputs: @query_param id, student json object(@req_body)
+router.put('/:id', function (req, res) {
+    controller.updateUser(req.params.id, req.body).then(function (data) {
+        res.status(data.status).send(data.message);
+    }).catch(function (err) {
+        res.status(err.status).send(err.message);
+    });
+});
+
+router.get('/',function(req,res){
+    controller.getUsers().then(function(data){
+        res.status(data.status).send(data.message);
+    }).catch(function(err){
+        res.status(err.status).send(err.message);
+    })
+})
+
+
 // router.post('/email', function (req, res) {
 //     console.log("mailing");
 //     controller.sendMail(req.body).then(function (data) {
@@ -50,14 +68,6 @@ router.post('/addUser', function (req, res) {
 //     });
 // });
 //
-// //HTTP method: PUT , inputs: @query_param id, student json object(@req_body)
-// router.put('/:id', function (req, res) {
-//     controller.updateStudent(req.params.id, req.body).then(function (data) {
-//         res.status(data.status).send(data.message);
-//     }).catch(function (err) {
-//         res.status(err.status).send(err.message);
-//     });
-// });
 //
 // //HTTP method: DELETE , inputs: @query_param id
 // router.delete('/:id', function (req, res) {

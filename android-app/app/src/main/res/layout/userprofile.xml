@@ -77,7 +77,7 @@
         android:typeface="sans"/>
 
     <Button
-        android:id="@+id/savedetails"
+        android:id="@+id/userprofilesave"
         android:layout_width="226dp"
         android:layout_height="62dp"
         android:layout_alignBottom="@+id/userprofilecontactNo"
@@ -99,7 +99,7 @@
         android:id="@+id/removeaccount"
         android:layout_width="226dp"
         android:layout_height="61dp"
-        android:layout_alignRight="@id/savedetails"
+        android:layout_alignRight="@id/userprofilesave"
         android:layout_alignBottom="@+id/userprofilecontactNo"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="60dp"
