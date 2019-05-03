@@ -36,9 +36,11 @@ var userController = function () {
 
     //get all registered students from the db
     this.getUsers = function () {
+        console.log("get");
         return new Promise(function (resolve, reject) {
-            UserSchema.find().exec().then(function (u) {
-                resolve({status: 200, data: u});
+            console.log("get all"); 
+            UserSchema.find().exec().then(function (data) {
+                resolve({status: 200, userdata: data});
             }).catch(function (reason) {
                 reject({status: 500, message:'Error occured'+ reason});
             });

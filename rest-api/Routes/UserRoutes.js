@@ -23,8 +23,9 @@ router.put('/:id', function (req, res) {
 });
 
 router.get('/',function(req,res){
+    console.log('routes');
     controller.getUsers().then(function(data){
-        res.status(data.status).send(data.message);
+        res.status(data.status).send({data:data.userdata});
     }).catch(function(err){
         res.status(err.status).send(err.message);
     })
