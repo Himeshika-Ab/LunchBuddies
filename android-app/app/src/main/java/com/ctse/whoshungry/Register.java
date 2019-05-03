@@ -31,35 +31,36 @@ public class Register extends AppCompatActivity {
 
 
 
+
         regbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if(rpassword.getText() != rconfirmpw.getText()){
-                        pwmessage();
-                }
-                else{
+                String p1 = rpassword.getText().toString();
+                String p2 = rconfirmpw.getText().toString();
+                boolean ans = p1.equals(p2);
+
+                if (ans){
                     successmessage();
                 }
-
-
-
+                else{
+                    pwmessage();
+                }
 
             }
         });
 
 
+    }
 
-
-
+    public void successmessage() {
+        Toast.makeText(this,"Successfully Registered!",Toast.LENGTH_LONG).show();
     }
 
     public void pwmessage() {
         Toast.makeText(this,"Passwords do not match!",Toast.LENGTH_LONG).show();
     }
 
-    public void successmessage() {
-        Toast.makeText(this,"Successfully Registered!",Toast.LENGTH_LONG).show();
-    }
+
 
 }

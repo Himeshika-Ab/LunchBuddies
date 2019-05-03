@@ -40,6 +40,17 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        loginbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(MainActivity.this,UserModel.class);
+                startActivity(intent);
+
+
+            }
+        });
+
 
 
 

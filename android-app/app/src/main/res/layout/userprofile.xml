@@ -37,6 +37,8 @@
         android:fontFamily="sans-serif"
         android:hint="   Name"
         android:textColorHint="#fceae5"
+        android:textAlignment="center"
+        android:textColor="#fceae5"
         android:textSize="18dp"
         android:textStyle="bold"
         android:typeface="sans" />
@@ -56,6 +58,8 @@
         android:hint="   Email"
         android:inputType="textEmailAddress"
         android:textColorHint="#fceae5"
+        android:textAlignment="center"
+        android:textColor="#fceae5"
         android:textSize="18dp"
         android:textStyle="bold"
         android:typeface="sans" />
@@ -70,6 +74,8 @@
         android:layout_marginBottom="-73dp"
         android:hint="   ContactNo"
         android:textColorHint="#fceae5"
+        android:textAlignment="center"
+        android:textColor="#fceae5"
         android:drawableLeft="@drawable/ic_phone_iphone_black_24dp"
         android:fontFamily="sans-serif"
         android:textSize="18dp"
@@ -96,7 +102,7 @@
         android:typeface="serif" />
 
     <Button
-        android:id="@+id/removeaccount"
+        android:id="@+id/userprofileremoveaccount"
         android:layout_width="226dp"
         android:layout_height="61dp"
         android:layout_alignRight="@id/userprofilesave"
