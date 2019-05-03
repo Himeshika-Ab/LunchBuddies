@@ -46,6 +46,20 @@ var userController = function () {
             });
         });
     }
+
+     //deleting students
+    this.deleteUser = function (id) {
+        return new Promise(function (resolve, reject) {
+            UserSchema.remove({_id: id}).then(function () {
+                resolve({status: 200, message: 'User deleted'});
+            }).catch(function (reason) {
+                reject({status: 500, message:'Error occured'+ reason});
+            });
+        })
+    
+    }
+
+
     //
     // //getting a single student by id
     // this.getStudent = function (id) {

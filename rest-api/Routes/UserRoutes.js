@@ -31,6 +31,14 @@ router.get('/',function(req,res){
     })
 })
 
+//HTTP method: DELETE , inputs: @query_param id
+router.delete('/:id', function (req, res) {
+    controller.deleteUser(req.params.id).then(function (data) {
+        res.status(data.status).send(data.message);
+    }).catch(function (err) {
+        res.status(err.status).send(err.message);
+    });
+});
 
 // router.post('/email', function (req, res) {
 //     console.log("mailing");
