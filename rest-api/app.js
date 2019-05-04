@@ -11,7 +11,7 @@ app.use(bodyParser.json());
 app.use(Cors());
 app.use('/',Routes);
 
-app.listen(21731, 'localhost', function (err) {
+app.listen(21731, '192.168.1.103', function (err) {
     if(err){
         console.log(err);
         process.exit(-1);
