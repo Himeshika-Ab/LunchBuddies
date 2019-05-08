@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_gravity="center_vertical"
+    android:gravity="center_vertical"
+    >
+
+
+    <TextView
+        android:id="@+id/header"
+        android:layout_width="236dp"
+        android:layout_height="match_parent"
+        android:layout_marginRight="-329dp"
+        android:background="@color/colorPrimaryDark"
+        android:fontFamily="casual"
+        android:gravity="center_vertical"
+        android:textColor="#ffffff"
+        android:textSize="28dp"
+        android:textStyle="bold" />
+
+
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="453dp"
+        android:src="@drawable/ic_account_circle_black_24dp" />
+
+
+    <TextView
+        android:id="@+id/registernamelbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/logo"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="-50dp"
+        android:fontFamily="sans-serif"
+        android:text="Name"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <EditText
+        android:id="@+id/registername"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/registernamelbl"
+        android:layout_alignBottom="@id/logo"
+        android:layout_marginRight="-307dp"
+        android:layout_marginBottom="-65dp"
+        android:fontFamily="sans-serif"
+        android:textAlignment="center"
+        android:textColor="#F95B31"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/registeremaillbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/registernamelbl"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="-65dp"
+        android:fontFamily="sans-serif"
+        android:text="Email"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <EditText
+        android:id="@+id/registeremail"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/registeremaillbl"
+        android:layout_alignBottom="@id/registername"
+        android:layout_marginRight="-314dp"
+        android:layout_marginBottom="-65dp"
+        android:fontFamily="sans-serif"
+        android:textAlignment="center"
+        android:inputType="textEmailAddress"
+        android:ems="12"
+        android:textColor="#F95B31"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/registercontactNolbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/registeremaillbl"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="-65dp"
+        android:fontFamily="sans-serif"
+        android:text="Contact No"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <EditText
+        android:id="@+id/registercontactNo"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/registercontactNolbl"
+        android:layout_alignBottom="@id/registeremail"
+        android:layout_marginRight="-258dp"
+        android:layout_marginBottom="-65dp"
+        android:fontFamily="sans-serif"
+        android:textAlignment="center"
+        android:textColor="#F95B31"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <TextView
+        android:id="@+id/registerpasswordlbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/registercontactNolbl"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="-65dp"
+        android:fontFamily="sans-serif"
+        android:text="Password"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <EditText
+        android:id="@+id/registerpassword"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/registerpasswordlbl"
+        android:layout_alignBottom="@+id/registercontactNo"
+        android:layout_marginRight="-273dp"
+        android:layout_marginBottom="-65dp"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="#F95B31"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+
+    <TextView
+        android:id="@+id/registerconfirmpwlbl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/registerpasswordlbl"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="-65dp"
+        android:fontFamily="sans-serif"
+        android:text="Confirm Password"
+        android:textAlignment="center"
+        android:textColor="#ffffff"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <EditText
+        android:id="@+id/registerconfirmpw"
+        android:layout_width="165dp"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@id/registerconfirmpwlbl"
+        android:layout_alignBottom="@+id/registerpassword"
+        android:layout_marginRight="-186dp"
+        android:layout_marginBottom="-65dp"
+        android:ems="10"
+        android:fontFamily="sans-serif"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        android:textColor="#F95B31"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:typeface="sans" />
+
+    <Button
+        android:id="@+id/registerbtn"
+        android:layout_width="145dp"
+        android:layout_height="60dp"
+        android:layout_alignBottom="@+id/registerconfirmpw"
+        android:layout_marginLeft="247dp"
+        android:layout_marginBottom="-93dp"
+        android:background="@color/colorAccent"
+        android:fontFamily="sans-serif"
+        android:text="Register"
+        android:textAlignment="center"
+        android:textAllCaps="false"
+        android:textAppearance="@style/TextAppearance.AppCompat.Button"
+        android:textColor="#ffffff"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:typeface="serif" />
+
+
+</RelativeLayout>

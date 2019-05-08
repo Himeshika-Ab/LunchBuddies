@@ -65,6 +65,20 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
+        FloatingActionButton login = findViewById(R.id.login);
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, Login.class);
+                startActivity(intent);
+
+
+            }
+        });
+
+
+
+
         SwipeMenuCreator creator = new SwipeMenuCreator() {
 
             @Override
