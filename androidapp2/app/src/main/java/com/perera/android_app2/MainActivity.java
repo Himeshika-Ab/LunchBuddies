@@ -134,17 +134,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-
-
-
-
-
-
-
-
-
-
-
 }
 
     private void sendSMS(int position) {
@@ -211,14 +200,6 @@ public class MainActivity extends AppCompatActivity {
                                     obj.getString("phone"));
 
                             friendList.add(friendObj);
-
-
-
-
-
-
-
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();

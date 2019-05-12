@@ -1,5 +1,6 @@
 package com.perera.android_app2;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,6 +10,11 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.loopj.android.http.AsyncHttpClient;
+import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
+
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -22,14 +28,24 @@ import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import cz.msebera.android.httpclient.Header;
+
 public class Register extends AppCompatActivity {
 
-    EditText rname;
-    EditText remail;
-    EditText rcontactNo;
-    EditText rpassword;
-    EditText rconfirmpw;
-    Button regbtn;
+    private EditText rname;
+    private EditText remail;
+    private EditText rcontactNo;
+    private EditText rpassword;
+    private EditText rconfirmpw;
+    private Button regbtn;
+
+
+    UserModel userObj;
+
+    private String URL = "https://peaceful-mountain-19289.herokuapp.com/user/addUser";
+    AsyncHttpClient client;
+
+
 
 
     @Override
@@ -37,27 +53,46 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
 
-        rname = (EditText) findViewById(R.id.registername);
-        remail = (EditText) findViewById(R.id.registeremail);
-        rcontactNo = (EditText) findViewById(R.id.registercontactNo);
-        rpassword = (EditText) findViewById(R.id.registerpassword);
-        rconfirmpw = (EditText) findViewById(R.id.registerconfirmpw);
-        regbtn = (Button) findViewById(R.id.registerbtn);
+        rname =  findViewById(R.id.registername);
+        remail = findViewById(R.id.registeremail);
+        rcontactNo = findViewById(R.id.registercontactNo);
+        rpassword = findViewById(R.id.registerpassword);
+        rconfirmpw = findViewById(R.id.registerconfirmpw);
+        regbtn = findViewById(R.id.registerbtn);
 
 
         regbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                String p1 = rpassword.getText().toString();
-                String p2 = rconfirmpw.getText().toString();
-                boolean ans = p1.equals(p2);
+//                String p1 = rpassword.getText().toString();
+//                String p2 = rconfirmpw.getText().toString();
+//                boolean ans = p1.equals(p2);
+//
+//                if (ans) {
+//                    successmessage();
+//                } else {
+//                    pwmessage();
+//                }
 
-                if (ans) {
-                    successmessage();
-                } else {
-                    pwmessage();
-                }
+                String name = rname.getText().toString();
+                String email = remail.getText().toString();
+                String contactNo = rcontactNo.getText().toString();
+                String password = rpassword.getText().toString();
+                String confirmpw = rconfirmpw.getText().toString();
+
+                RequestParams params = new RequestParams();
+                params.put("name",name);
+                params.put("email",email);
+                params.put("phone",contactNo);
+                params.put("password",password);
+
+                addUser(params);
+                successmessage();
+
+
+                stopService(new Intent(Register.this, MainActivity.class));
+                finish();
 
             }
         });
@@ -74,84 +109,28 @@ public class Register extends AppCompatActivity {
     }
 
 
-    class PostDataTask extends AsyncTask<String, Void, String> {
+    public void  addUser(RequestParams params){
 
-        @Override
-        protected void onPreExecute() {
-            super.onPreExecute();
-            Log.d("myTag", "onPreExecute");
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            try {
-                Log.d("myTag", "doinbackground");
-                return postData(strings[0]);
-            } catch (IOException e) {
-                return "IOException" + e;
-            } catch (JSONException j) {
-                return "JSONException" + j;
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            Log.d("myTag", "onPreExecute");
-            super.onPostExecute(s);
-
-
-        }
-
-
-        public String postData(String urlPath) throws IOException, JSONException {
-
-            StringBuilder result = new StringBuilder();
-            BufferedReader bufferedReader = null;
-            BufferedWriter bufferedWriter = null;
-
-            try {
-
-                JSONObject dataToSend = new JSONObject();
-                dataToSend.put("name", rname);
-                dataToSend.put("email", remail);
-                dataToSend.put("phone", rcontactNo);
-                dataToSend.put("password", rpassword);
-
-                URL url = new URL(urlPath);
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                con.setReadTimeout(10000);
-                con.setConnectTimeout(10000);
-                con.setRequestMethod("POST");
-                con.setDoOutput(true);
-                con.setRequestProperty("Content-Type", "application/json");
-                con.connect();
-
-                OutputStream outputStream = con.getOutputStream();
-                bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream));
-                bufferedWriter.write(dataToSend.toString());
-                bufferedWriter.flush();
-
-                InputStream inputStream = con.getInputStream();
-                bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-                String line;
-                while ((line = bufferedReader.readLine()) != null) {
-                    result.append(line).append("\n");
-                }
-            } finally {
-
-                if (bufferedWriter != null) {
-                    bufferedWriter.close();
-                }
-                if (bufferedReader != null) {
-                    bufferedReader.close();
-                }
+        Log.d("user", "inside in the add user method");
+        client = new AsyncHttpClient();
+        client.post(URL, params,new JsonHttpResponseHandler(){
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                Log.d("user", "User registered!");
 
             }
 
-            return result.toString();
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+                Log.d("user", errorResponse.toString());
+            }
+        });
 
-        }
 
     }
+
+
 }
 
