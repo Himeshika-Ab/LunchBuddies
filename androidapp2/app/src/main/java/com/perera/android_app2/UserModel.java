@@ -10,11 +10,10 @@ public class UserModel implements Serializable {
     public UserModel() {
     }
 
-    public UserModel(String name, String email, String contactNo, String password) {
+    public UserModel(String name, String email, String contactNo) {
         this.name = name;
         this.email = email;
         this.contactNo = contactNo;
-        this.password = password;
     }
 
     public String getName() {
