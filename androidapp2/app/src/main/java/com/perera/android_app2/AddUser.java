@@ -113,6 +113,36 @@ public class AddUser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
+//                try {
+//                    Log.d("user", userobj.getName());
+//                    Log.d("user", userobj.getEmail());
+//                    Log.d("user", userobj.getContactNo());
+//
+//                    String name = userobj.getName();
+//                    String email = userobj.getEmail();
+//                    String phone = userobj.getContactNo();
+//                    String id = userobj.get_id();
+//
+//                    Log.d("user", name);
+//                    Log.d("user", email);
+//                    Log.d("user", phone);
+//                    Log.d("user",id);
+//
+//                    RequestParams params = new RequestParams();
+//                    params.put("name", name);
+//                    params.put("email", email);
+//                    params.put("phone", phone);
+//
+//                    Log.d("user", "calling remove");
+//
+//                    removealert();
+//                    removeUser(params,id);
+//                }
+//                catch (Exception e) {
+//                    e.printStackTrace();
+//                    Log.d("user", e.toString());
+//                }
+
                 removealert();
 
             }
@@ -128,10 +158,15 @@ public class AddUser extends AppCompatActivity {
         Toast.makeText(this,"Incorrect Email!",Toast.LENGTH_LONG).show();
     }
 
+    public void removemsg(){
+        Toast.makeText(this,"Successfully Removed!",Toast.LENGTH_LONG).show();
+    }
+
     public void removealert(){
 
+
         AlertDialog.Builder builder = new AlertDialog.Builder(AddUser.this);
-        builder.setMessage("Do you want to exit ?");
+        builder.setMessage("Do you want to delete account?");
         builder.setCancelable(false);
 
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
@@ -139,7 +174,44 @@ public class AddUser extends AppCompatActivity {
             @Override
             public void onClick(DialogInterface dialog, int which)
             {
-                //finish();
+
+                try {
+                    Log.d("user", userobj.getName());
+                    Log.d("user", userobj.getEmail());
+                    Log.d("user", userobj.getContactNo());
+
+                    String name = userobj.getName();
+                    String email = userobj.getEmail();
+                    String phone = userobj.getContactNo();
+                    String id = userobj.get_id();
+
+                    Log.d("user", name);
+                    Log.d("user", email);
+                    Log.d("user", phone);
+                    Log.d("user",id);
+
+                    RequestParams params = new RequestParams();
+                    params.put("name", name);
+                    params.put("email", email);
+                    params.put("phone", phone);
+
+                    Log.d("user", "calling remove");
+
+                    removeUser(params,id);
+
+                    removemsg();
+
+                    getUser();
+
+
+
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                    Log.d("user", e.toString());
+                }
+
+
             }
         });
 
@@ -172,6 +244,11 @@ public class AddUser extends AppCompatActivity {
                 try{
                     JSONArray jArray = response.getJSONArray("data");
                     Log.d("user", "inside array");
+
+                    if(jArray.isNull(0)){
+                        stopService(new Intent(AddUser.this, Register.class));
+                        finish();
+                    }
 
                     for(int i=0;i<jArray.length();i++)
                         try {
@@ -247,6 +324,30 @@ public class AddUser extends AppCompatActivity {
         catch(Exception e){
             e.printStackTrace();
         }
+
+    }
+
+
+    private void removeUser(RequestParams params, String id){
+
+        Log.d("user", "inside in the remove data");
+        Log.d("user",id);
+
+        client = new AsyncHttpClient();
+        client.delete(URL+id,new JsonHttpResponseHandler(){
+
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                super.onSuccess(statusCode, headers, response);
+                getUser();
+
+            }
+
+            @Override
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                super.onFailure(statusCode, headers, throwable, errorResponse);
+            }
+        });
 
     }
 
