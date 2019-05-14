@@ -14,11 +14,13 @@ import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.spec.ECField;
 import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
@@ -51,6 +53,8 @@ public class AddUser extends AppCompatActivity {
         uremove = (Button) findViewById(R.id.userprofileremoveaccount);
 
 
+
+
         Toast.makeText(this, "getdatatask!", Toast.LENGTH_LONG).show();
         Log.d("user", "calling get");
         getUser();
@@ -69,7 +73,38 @@ public class AddUser extends AppCompatActivity {
 //                    savemsg();
 //                }
 
-                savemsg();
+                try {
+                    Log.d("user", userobj.getName());
+                    Log.d("user", userobj.getEmail());
+                    Log.d("user", userobj.getContactNo());
+
+                    String name = userobj.getName();
+                    String email = userobj.getEmail();
+                    String phone = userobj.getContactNo();
+                    String id = userobj.get_id();
+
+                    Log.d("user", name);
+                    Log.d("user", email);
+                    Log.d("user", phone);
+                    Log.d("user",id);
+
+                    RequestParams params = new RequestParams();
+                    params.put("name", name);
+                    params.put("email", email);
+                    params.put("phone", phone);
+
+                    Log.d("user", "calling update");
+
+
+
+                    updateUser(params, id);
+                    savemsg();
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                    Log.d("user", e.toString());
+                }
+
 
             }
         });
@@ -143,6 +178,7 @@ public class AddUser extends AppCompatActivity {
 
                             JSONObject obj = jArray.getJSONObject(i);
                             userobj= new UserModel(
+                                    obj.getString("_id"),
                                     obj.getString("name"),
                                     obj.getString("email"),
                                     obj.getString("phone"));
@@ -180,6 +216,38 @@ public class AddUser extends AppCompatActivity {
                 Log.d("friend", "fail to get request");
             }
         });
+    }
+
+    private void updateUser(RequestParams params, String id){
+
+        Log.d("user", "inside in the update data");
+        Log.d("user",id);
+
+        try {
+            client = new AsyncHttpClient();
+            client.put(URL + id, params, new JsonHttpResponseHandler() {
+
+                @Override
+                public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                    Log.d("user", "onSuccess");
+                    super.onSuccess(statusCode, headers, response);
+
+
+                }
+
+                @Override
+                public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
+                    Log.d("user", "onFailure");
+                    super.onFailure(statusCode, headers, throwable, errorResponse);
+                    Log.d("user", errorResponse.toString());
+                }
+
+            });
+        }
+        catch(Exception e){
+            e.printStackTrace();
+        }
+
     }
 
 

@@ -5,15 +5,20 @@ import java.io.Serializable;
 
 public class UserModel implements Serializable {
 
-    private String name, email, contactNo, password;
+    private String _id,name, email, contactNo, password;
 
     public UserModel() {
     }
 
-    public UserModel(String name, String email, String contactNo) {
+    public UserModel(String id, String name, String email, String contactNo) {
+        this._id = id;
         this.name = name;
         this.email = email;
         this.contactNo = contactNo;
+    }
+
+    public String get_id() {
+        return _id;
     }
 
     public String getName() {
