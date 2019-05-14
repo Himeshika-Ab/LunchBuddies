@@ -100,36 +100,6 @@ public class AddUser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                try {
-//                    Log.d("user", userobj.getName());
-//                    Log.d("user", userobj.getEmail());
-//                    Log.d("user", userobj.getContactNo());
-//
-//                    String name = userobj.getName();
-//                    String email = userobj.getEmail();
-//                    String phone = userobj.getContactNo();
-//                    String id = userobj.get_id();
-//
-//                    Log.d("user", name);
-//                    Log.d("user", email);
-//                    Log.d("user", phone);
-//                    Log.d("user",id);
-//
-//                    RequestParams params = new RequestParams();
-//                    params.put("name", name);
-//                    params.put("email", email);
-//                    params.put("phone", phone);
-//
-//                    Log.d("user", "calling remove");
-//
-//                    removealert();
-//                    removeUser(params,id);
-//                }
-//                catch (Exception e) {
-//                    e.printStackTrace();
-//                    Log.d("user", e.toString());
-//                }
-
                 removealert();
 
             }
@@ -188,7 +158,8 @@ public class AddUser extends AppCompatActivity {
 
                     removemsg();
 
-                    getUser();
+                    Intent intent = new Intent(AddUser.this, MainActivity.class);
+                    startActivity(intent);
 
 
 

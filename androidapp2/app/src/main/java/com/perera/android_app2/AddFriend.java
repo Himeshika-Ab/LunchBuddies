@@ -7,16 +7,12 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Spinner;
-import android.widget.TimePicker;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.json.JSONObject;
-
-import java.io.Serializable;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -100,7 +96,7 @@ public class AddFriend extends AppCompatActivity {
                 else
                     addFriend(params);
 
-                stopService(new Intent(AddFriend.this, MainActivity.class));
+                stopService(new Intent(AddFriend.this, FriendList.class));
                 finish();
 
             }

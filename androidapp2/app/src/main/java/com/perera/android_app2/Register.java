@@ -1,7 +1,6 @@
 package com.perera.android_app2;
 
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -14,19 +13,7 @@ import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -65,16 +52,6 @@ public class Register extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                String p1 = rpassword.getText().toString();
-//                String p2 = rconfirmpw.getText().toString();
-//                boolean ans = p1.equals(p2);
-//
-//                if (ans) {
-//                    successmessage();
-//                } else {
-//                    pwmessage();
-//                }
-
                 String name = rname.getText().toString();
                 String email = remail.getText().toString();
                 String contactNo = rcontactNo.getText().toString();
@@ -87,12 +64,29 @@ public class Register extends AppCompatActivity {
                 params.put("phone",contactNo);
                 params.put("password",password);
 
-                addUser(params);
-                successmessage();
+
+                if(isValid(email)) {
+                    if ((contactNo.length() == 10)) {
+                        if ((password.equals(confirmpw))) {
+                            addUser(params);
+                            successmessage();
+
+                            Intent intent = new Intent(Register.this, FriendList.class);
+                            startActivity(intent);
+
+                        } else {
+                            pwmessage();
+                        }
+
+                    } else {
+                        contactNomessage();
+                    }
+                }
+                else{
+                    emailmessage();
+                }
 
 
-                stopService(new Intent(Register.this, MainActivity.class));
-                finish();
 
             }
         });
@@ -108,6 +102,18 @@ public class Register extends AppCompatActivity {
         Toast.makeText(this, "Passwords do not match!", Toast.LENGTH_LONG).show();
     }
 
+    public void contactNomessage() {
+        Toast.makeText(this, "Invalid contact Number!", Toast.LENGTH_LONG).show();
+    }
+
+    public boolean isValid(String email) {
+        String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
+        return email.matches(regex);
+    }
+
+    public void emailmessage() {
+        Toast.makeText(this, "Invalid email address!", Toast.LENGTH_LONG).show();
+    }
 
     public void  addUser(RequestParams params){
 
