@@ -37,7 +37,6 @@ public class AddUser extends AppCompatActivity {
     private String URL = "https://peaceful-mountain-19289.herokuapp.com/user/";
     UserModel userobj;
     AsyncHttpClient client;
-    ArrayList<UserModel> userList;
 
 
 
@@ -53,9 +52,6 @@ public class AddUser extends AppCompatActivity {
         uremove = (Button) findViewById(R.id.userprofileremoveaccount);
 
 
-
-
-        Toast.makeText(this, "getdatatask!", Toast.LENGTH_LONG).show();
         Log.d("user", "calling get");
         getUser();
 
@@ -63,15 +59,6 @@ public class AddUser extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-//                String email = uemail.getText().toString();
-//                String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
-//
-//                if (email.matches(regex)){
-//                    emailmsg();
-//                }
-//                else{
-//                    savemsg();
-//                }
 
                 try {
                     Log.d("user", userobj.getName());

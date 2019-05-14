@@ -17,6 +17,11 @@ public class UserModel implements Serializable {
         this.contactNo = contactNo;
     }
 
+    public UserModel(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
     public String get_id() {
         return _id;
     }
