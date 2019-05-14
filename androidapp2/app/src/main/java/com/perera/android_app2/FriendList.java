@@ -135,7 +135,7 @@ public class FriendList extends AppCompatActivity {
     private void sendSMS(int position) {
         Log.d("friend", "Sending message");
 
-        String message = "badagini yako!!!! ";
+        String message = "Let's go for lunch!!!! ";
         String number = friendList.get(position).getPhone();
         try {
             SmsManager smsManager = SmsManager.getDefault();

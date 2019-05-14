@@ -7,7 +7,6 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,9 +18,6 @@ import com.loopj.android.http.RequestParams;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
-import java.security.spec.ECField;
-import java.util.ArrayList;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -158,7 +154,7 @@ public class AddUser extends AppCompatActivity {
 
                     removemsg();
 
-                    Intent intent = new Intent(AddUser.this, MainActivity.class);
+                    Intent intent = new Intent(AddUser.this, Login.class);
                     startActivity(intent);
 
 
