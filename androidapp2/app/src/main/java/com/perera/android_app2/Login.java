@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -28,6 +30,7 @@ public class Login extends AppCompatActivity {
     private String URL = "https://peaceful-mountain-19289.herokuapp.com/user/";
     UserModel userobj;
     AsyncHttpClient client;
+    Animation fromBottom,fromTop;
 
 
     @Override
@@ -38,8 +41,16 @@ public class Login extends AppCompatActivity {
 
         email = findViewById(R.id.loginemail);
         password = findViewById(R.id.loginpassword);
-        loginbtn = findViewById(R.id.Loginbutton);
-        registerbtn = findViewById(R.id.loginregisterbutton);
+        loginbtn = (Button) findViewById(R.id.Loginbutton);
+        registerbtn = (Button) findViewById(R.id.loginregisterbutton);
+
+        fromBottom = AnimationUtils.loadAnimation(this,R.anim.from_bottom);
+        fromTop = AnimationUtils.loadAnimation(this,R.anim.from_top);
+
+        email.setAnimation(fromTop);
+        password.setAnimation(fromTop);
+        loginbtn.setAnimation(fromBottom);
+        registerbtn.setAnimation(fromBottom);
 
 
         registerbtn.setOnClickListener(new View.OnClickListener() {

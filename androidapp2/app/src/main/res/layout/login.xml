@@ -13,14 +13,13 @@
         android:layout_height="1000dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
-        android:background="#ffde03" />
+        android:src="@drawable/donuts" />
 
 
     <EditText
         android:id="@+id/loginemail"
         android:layout_width="290dp"
         android:layout_height="48dp"
-        android:layout_alignBottom="@+id/loginname"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="65dp"
         android:layout_marginTop="200dp"
@@ -46,7 +45,7 @@
         android:layout_alignBottom="@+id/loginemail"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="65dp"
-        android:layout_marginBottom="-76dp"
+        android:layout_marginBottom="-100dp"
         android:background="#FFE786A7"
         android:drawableLeft="@drawable/ic_lock_black_24dp"
         android:ems="12"
@@ -68,7 +67,7 @@
         android:layout_alignBottom="@+id/loginpassword"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="65dp"
-        android:layout_marginBottom="-104dp"
+        android:layout_marginBottom="-100dp"
         android:background="#FFE786A7"
         android:drawableLeft="@drawable/ic_touch_app_black_24dp"
         android:ems="12"
@@ -90,7 +89,7 @@
         android:layout_alignBottom="@+id/loginpassword"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="65dp"
-        android:layout_marginBottom="-194dp"
+        android:layout_marginBottom="-200dp"
         android:background="#FFE786A7"
         android:drawableLeft="@drawable/ic_add_black_24dp"
         android:ems="12"

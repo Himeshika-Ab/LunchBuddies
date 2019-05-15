@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -26,6 +28,8 @@ public class Register extends AppCompatActivity {
     private EditText rconfirmpw;
     private Button regbtn;
 
+    Animation fromBottom;
+
 
     UserModel userObj;
 
@@ -45,8 +49,11 @@ public class Register extends AppCompatActivity {
         rcontactNo = findViewById(R.id.registercontactNo);
         rpassword = findViewById(R.id.registerpassword);
         rconfirmpw = findViewById(R.id.registerconfirmpw);
-        regbtn = findViewById(R.id.registerbtn);
+        regbtn = (Button) findViewById(R.id.registerbtn);
 
+        fromBottom = AnimationUtils.loadAnimation(this,R.anim.from_bottom);
+
+        regbtn.setAnimation(fromBottom);
 
         regbtn.setOnClickListener(new View.OnClickListener() {
             @Override

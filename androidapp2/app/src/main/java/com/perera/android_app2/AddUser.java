@@ -7,6 +7,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -30,6 +32,8 @@ public class AddUser extends AppCompatActivity {
     Button usave;
     Button uremove;
 
+    Animation fromBottom;
+
     private String URL = "https://peaceful-mountain-19289.herokuapp.com/user/";
     UserModel userobj;
     AsyncHttpClient client;
@@ -47,6 +51,10 @@ public class AddUser extends AppCompatActivity {
         usave = (Button) findViewById(R.id.userprofilesave);
         uremove = (Button) findViewById(R.id.userprofileremoveaccount);
 
+        fromBottom = AnimationUtils.loadAnimation(this,R.anim.from_bottom);
+
+        usave.setAnimation(fromBottom);
+        uremove.setAnimation(fromBottom);
 
         Log.d("user", "calling get");
         getUser();
