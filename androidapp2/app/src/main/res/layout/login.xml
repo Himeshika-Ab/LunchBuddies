@@ -13,7 +13,7 @@
         android:layout_height="1000dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="0dp"
-        android:src="@drawable/donuts" />
+        android:src="@drawable/cake" />
 
 
     <EditText
