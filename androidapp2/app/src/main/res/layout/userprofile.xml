@@ -12,7 +12,7 @@
         android:layout_height="483dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="248dp"
-        android:background="@color/colorPrimaryDark" />
+        android:background="#ffb71c1c" />
 
 
     <ImageView
@@ -90,7 +90,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="60dp"
         android:layout_marginBottom="-143dp"
-        android:background="@color/colorAccent"
+        android:background="#ffb71c1c"
         android:fontFamily="sans-serif"
         android:text="Save Changes"
         android:textAlignment="center"
@@ -111,7 +111,7 @@
         android:layout_marginLeft="60dp"
         android:layout_marginRight="-2dp"
         android:layout_marginBottom="-221dp"
-        android:background="@color/colorAccent"
+        android:background="#ffb71c1c"
         android:fontFamily="sans-serif"
         android:text="Remove Account"
         android:textAlignment="center"
