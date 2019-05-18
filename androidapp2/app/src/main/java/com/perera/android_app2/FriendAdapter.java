@@ -20,6 +20,11 @@ public class FriendAdapter extends BaseAdapter {
         this.friendList = friendList;
     }
 
+
+    @Override
+    public Object getItem(int position) {
+        return friendList.get(position);
+    }
     @Override
     public int getViewTypeCount() {
         return getCount();
@@ -35,10 +40,7 @@ public class FriendAdapter extends BaseAdapter {
         return friendList.size();
     }
 
-    @Override
-    public Object getItem(int position) {
-        return friendList.get(position);
-    }
+
 
     @Override
     public long getItemId(int position) {

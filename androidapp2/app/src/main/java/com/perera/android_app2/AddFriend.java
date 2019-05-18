@@ -5,14 +5,18 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
 
 import org.json.JSONObject;
+import org.w3c.dom.Text;
 
 import cz.msebera.android.httpclient.Header;
 
@@ -22,6 +26,7 @@ public class AddFriend extends AppCompatActivity {
     private EditText fName;
     private EditText sName;
     private EditText phone;
+    TextView toolbartxt;
 
     FriendModel friendObj;
 
@@ -37,6 +42,13 @@ public class AddFriend extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friend_add_layout);
+
+        toolbartxt = findViewById(R.id.textView);
+        toolbartxt.setText("Friend Details");
+        Animation fromBottom = AnimationUtils.loadAnimation(this, R.anim.from_bottom);
+        addButton = findViewById(R.id.addButton);
+
+        addButton.setAnimation(fromBottom);
 
         friendObj= (FriendModel) getIntent().getSerializableExtra("id");
 
@@ -98,6 +110,9 @@ public class AddFriend extends AppCompatActivity {
 
                 stopService(new Intent(AddFriend.this, FriendList.class));
                 finish();
+
+                Intent intent = new Intent(AddFriend.this, FriendList.class);
+                startActivity(intent);
 
             }
         });

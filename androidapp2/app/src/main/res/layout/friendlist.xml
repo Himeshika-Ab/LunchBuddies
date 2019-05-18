@@ -23,19 +23,9 @@
         android:layout_gravity="bottom|end"
         android:layout_margin="16dp"
         app:backgroundTint="@color/colorAccent"
-        app:srcCompat="@android:drawable/ic_input_add" />
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_marginRight="80dp"
-        app:layout_anchor="@id/fab"
-        app:layout_anchorGravity="top|center"
-        app:backgroundTint="@color/colorAccent"
-        app:srcCompat="@drawable/name_24dp"
+        app:srcCompat="@drawable/ic_add"
         tools:ignore="VectorDrawableCompat" />
+
 
 
 

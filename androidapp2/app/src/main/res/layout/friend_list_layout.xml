@@ -7,13 +7,18 @@
     android:orientation="vertical"
     tools:context=".FriendList">
 
-
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/toolbar"
+        />
 
     <com.baoyz.swipemenulistview.SwipeMenuListView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:id="@+id/lv"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        android:elevation ="5dp"
+        >
 
 
     </com.baoyz.swipemenulistview.SwipeMenuListView>

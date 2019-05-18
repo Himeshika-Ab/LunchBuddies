@@ -12,11 +12,15 @@
         android:layout_height="65dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        app:srcCompat="@android:color/background_light" />
+        app:srcCompat="@android:color/background_light"
+        android:elevation ="10dp"
+        />
 
     <LinearLayout
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+        android:elevation ="12dp"
+        >
 
         <ImageView
             android:id="@+id/friendIcon"
@@ -25,7 +29,9 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="10dp"
             android:scaleType="fitStart"
-            android:src="@drawable/iconuser" />
+            android:src="@mipmap/ic_friend"
+            android:elevation ="15dp"
+            />
 
 
     <LinearLayout

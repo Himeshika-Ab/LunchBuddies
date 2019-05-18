@@ -1,15 +1,23 @@
 package com.perera.android_app2;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.telephony.SmsManager;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.baoyz.swipemenulistview.SwipeMenu;
@@ -35,16 +43,45 @@ public class FriendList extends AppCompatActivity {
     AsyncHttpClient client;
     FriendModel friendObj;
     private FriendAdapter friendAdapter;
+    TextView toolbartxt;
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.user_info:
+            {
+                Intent intent = new Intent(FriendList.this, AddUser.class);
+                startActivity(intent);
+            }
+            return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.friendlist);
+        Toolbar toolbar = findViewById(R.id.toolBar);
+        setSupportActionBar(toolbar);
 
         friendList = new ArrayList<>();
         listView = findViewById(R.id.lv);
+        toolbartxt = findViewById(R.id.textView);
+        toolbartxt.setText("Friend List");
+
 
         getAllFriends();
+
 
 
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -61,21 +98,11 @@ public class FriendList extends AppCompatActivity {
         });
 
 
-        FloatingActionButton login = findViewById(R.id.login);
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(FriendList.this, AddUser.class);
-                startActivity(intent);
-
-
-            }
-        });
 
 
 
 
-        SwipeMenuCreator creator = new SwipeMenuCreator() {
+     SwipeMenuCreator creator = new SwipeMenuCreator() {
 
             @Override
             public void create(SwipeMenu menu) {
@@ -132,6 +159,8 @@ public class FriendList extends AppCompatActivity {
 
 }
 
+
+
     private void sendSMS(int position) {
         Log.d("friend", "Sending message");
 
@@ -161,6 +190,7 @@ public class FriendList extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
                 getAllFriends();
+
             }
 
             @Override
@@ -168,7 +198,8 @@ public class FriendList extends AppCompatActivity {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
             }
         });
-
+        Intent intent = new Intent(FriendList.this, FriendList.class);
+        startActivity(intent);
 
     }
 

@@ -9,6 +9,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -27,6 +28,7 @@ public class Register extends AppCompatActivity {
     private EditText rpassword;
     private EditText rconfirmpw;
     private Button regbtn;
+    TextView toolbartxt;
 
     Animation fromBottom;
 
@@ -43,6 +45,9 @@ public class Register extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
+
+        toolbartxt = findViewById(R.id.textView);
+        toolbartxt.setText("Register");
 
         rname =  findViewById(R.id.registername);
         remail = findViewById(R.id.registeremail);

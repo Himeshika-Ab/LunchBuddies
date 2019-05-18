@@ -11,6 +11,7 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
@@ -31,6 +32,7 @@ public class AddUser extends AppCompatActivity {
     EditText ucontactNo;
     Button usave;
     Button uremove;
+    TextView toolbartxt;
 
     Animation fromBottom;
 
@@ -44,6 +46,9 @@ public class AddUser extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.userprofile);
+
+        toolbartxt = findViewById(R.id.textView);
+        toolbartxt.setText("User Details");
 
         uname = (EditText) findViewById(R.id.userprofilename);
         uemail = (EditText) findViewById(R.id.userprofileemail);

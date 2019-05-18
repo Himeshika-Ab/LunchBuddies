@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">android-app2</string>
-    <string name="display_name">Who\'s Hungry</string>
+    <string name="display_name_app">Who\'s Hungry</string>
+    <string name ="toolbar_name">Who\'s Hungry</string>
 </resources>

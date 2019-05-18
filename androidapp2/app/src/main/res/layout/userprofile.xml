@@ -6,12 +6,18 @@
     android:layout_height="match_parent"
     >
 
+
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/toolbar"
+        />
     <ImageView
         android:id="@+id/wallpaper2"
         android:layout_width="match_parent"
         android:layout_height="483dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="248dp"
+
         android:background="#ffb71c1c" />
 
 
@@ -22,6 +28,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="135dp"
+        android:layout_marginTop="60dp"
         android:layout_marginBottom="516dp"
         android:src="@drawable/ic_account_circle_black_24dp" />
 
@@ -70,8 +77,9 @@
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/userprofileemail"
         android:layout_marginLeft="75dp"
-        android:layout_centerHorizontal="true"
         android:layout_marginBottom="-73dp"
+        android:layout_centerHorizontal="true"
+
         android:hint="   ContactNo"
         android:textColorHint="#fceae5"
         android:textAlignment="center"
@@ -90,7 +98,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="60dp"
         android:layout_marginBottom="-143dp"
-        android:background="#ffb71c1c"
         android:fontFamily="sans-serif"
         android:text="Save Changes"
         android:textAlignment="center"
@@ -99,7 +106,10 @@
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:typeface="serif" />
+        android:typeface="serif"
+        android:background="@drawable/button_rounded_corners"
+
+        />
 
     <Button
         android:id="@+id/userprofileremoveaccount"
@@ -111,7 +121,6 @@
         android:layout_marginLeft="60dp"
         android:layout_marginRight="-2dp"
         android:layout_marginBottom="-221dp"
-        android:background="#ffb71c1c"
         android:fontFamily="sans-serif"
         android:text="Remove Account"
         android:textAlignment="center"
@@ -120,7 +129,10 @@
         android:textColor="#ffffff"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:typeface="serif" />
+        android:typeface="serif"
+        android:background="@drawable/button_rounded_corners"
+
+        />
 
 
 </RelativeLayout>

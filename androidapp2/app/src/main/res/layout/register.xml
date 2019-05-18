@@ -8,40 +8,41 @@
     android:gravity="center_vertical"
     >
 
+    <include
+        android:id="@+id/toolBar"
+        layout="@layout/toolbar"
+        />
+    <ImageView
+        android:id="@+id/wallpaper2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="0dp"
+        android:background="@drawable/food3" />
 
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="740dp"
-        android:layout_height="149dp"
-        android:layout_marginRight="-329dp"
-        android:layout_marginBottom="584dp"
-        android:background="#ffb71c1c"
-        android:fontFamily="casual"
-        android:gravity="center_vertical"
-        android:textColor="#ffb71c1c"
-        android:textSize="28dp"
-        android:textStyle="bold" />
+    <ImageView
+        android:id="@+id/wallpaper3"
+        android:layout_width="match_parent"
+        android:layout_height="520dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:alpha=".70"
+        android:layout_marginTop="0dp"
+        android:background="#f2f2f2"
+        android:elevation ="2dp"
 
-
-    <!--<ImageView-->
-        <!--android:id="@+id/logo"-->
-        <!--android:layout_width="113dp"-->
-        <!--android:layout_height="112dp"-->
-        <!--android:layout_alignParentBottom="true"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--android:layout_marginLeft="20dp"-->
-        <!--android:layout_marginBottom="584dp"-->
-        <!--android:src="@drawable/ic_account_circle_black_24dp" />-->
-
+        />
 
     <TextView
         android:id="@+id/registernamelbl"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@id/header"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="30dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="80dp"
         android:layout_marginBottom="-80dp"
         android:fontFamily="sans-serif"
         android:text="Name"
@@ -49,6 +50,7 @@
         android:textColor="#ffb71c1c"
         android:textSize="22sp"
         android:textStyle="bold"
+        android:elevation ="6dp"
         android:typeface="sans" />
 
     <EditText
@@ -63,6 +65,7 @@
         android:textAlignment="center"
         android:textColor="#ffb71c1c"
         android:textSize="20dp"
+        android:elevation ="6dp"
         android:textStyle="bold"
         android:typeface="sans" />
 
@@ -81,6 +84,7 @@
         android:textColor="#ffb71c1c"
         android:textSize="22sp"
         android:textStyle="bold"
+        android:elevation ="6dp"
         android:typeface="sans" />
 
     <EditText
@@ -95,6 +99,7 @@
         android:fontFamily="sans-serif"
         android:inputType="textEmailAddress"
         android:textAlignment="center"
+        android:elevation ="6dp"
         android:textColor="#ffb71c1c"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -111,6 +116,7 @@
         android:layout_marginBottom="-32dp"
         android:fontFamily="sans-serif"
         android:text="Contact No"
+        android:elevation ="6dp"
         android:textAlignment="center"
         android:textColor="#ffb71c1c"
         android:textSize="22sp"
@@ -127,6 +133,7 @@
         android:layout_marginBottom="-53dp"
         android:fontFamily="sans-serif"
         android:textAlignment="center"
+        android:elevation ="6dp"
         android:textColor="#ffb71c1c"
         android:textSize="20dp"
         android:textStyle="bold"
@@ -143,6 +150,7 @@
         android:layout_marginBottom="-32dp"
         android:fontFamily="sans-serif"
         android:text="Password"
+        android:elevation ="6dp"
         android:textAlignment="center"
         android:textColor="#ffb71c1c"
         android:textSize="22sp"
@@ -158,6 +166,7 @@
         android:layout_marginRight="-273dp"
         android:layout_marginBottom="-56dp"
         android:ems="10"
+        android:elevation ="6dp"
         android:fontFamily="sans-serif"
         android:inputType="textPassword"
         android:textAlignment="center"
@@ -179,6 +188,7 @@
         android:fontFamily="sans-serif"
         android:text="Confirm Password"
         android:textAlignment="center"
+        android:elevation ="6dp"
         android:textColor="#ffb71c1c"
         android:textSize="22sp"
         android:textStyle="bold"
@@ -197,19 +207,22 @@
         android:inputType="textPassword"
         android:textAlignment="center"
         android:textColor="#ffb71c1c"
+        android:elevation ="6dp"
         android:textSize="20dp"
         android:textStyle="bold"
         android:typeface="sans" />
 
     <Button
         android:id="@+id/registerbtn"
-        android:layout_width="145dp"
-        android:layout_height="60dp"
+        android:layout_width="219dp"
+        android:layout_height="64dp"
         android:layout_alignBottom="@+id/registerconfirmpw"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="247dp"
-        android:layout_marginBottom="-80dp"
-        android:background="#ffb71c1c"
+        android:layout_marginRight="-186dp"
+        android:layout_marginBottom="30dp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/button_rounded_corners"
         android:fontFamily="sans-serif"
         android:text="Register"
         android:textAlignment="center"
@@ -217,6 +230,7 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textColor="#ffffff"
         android:textSize="20sp"
+        android:elevation ="7dp"
         android:textStyle="bold"
         android:typeface="serif" />
 
