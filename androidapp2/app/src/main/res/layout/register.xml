@@ -23,16 +23,16 @@
 
     <ImageView
         android:id="@+id/wallpaper3"
-        android:layout_width="match_parent"
-        android:layout_height="520dp"
+        android:layout_width="364dp"
+        android:layout_height="562dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:alpha=".70"
         android:layout_marginTop="0dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:alpha=".70"
         android:background="#f2f2f2"
-        android:elevation ="2dp"
+        android:elevation="2dp"
 
         />
 
@@ -217,12 +217,13 @@
         android:layout_width="219dp"
         android:layout_height="64dp"
         android:layout_alignBottom="@+id/registerconfirmpw"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginLeft="247dp"
         android:layout_marginRight="-186dp"
-        android:layout_marginBottom="30dp"
-        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="56dp"
         android:background="@drawable/button_rounded_corners"
+        android:elevation="7dp"
         android:fontFamily="sans-serif"
         android:text="Register"
         android:textAlignment="center"
@@ -230,7 +231,6 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Button"
         android:textColor="#ffffff"
         android:textSize="20sp"
-        android:elevation ="7dp"
         android:textStyle="bold"
         android:typeface="serif" />
 
