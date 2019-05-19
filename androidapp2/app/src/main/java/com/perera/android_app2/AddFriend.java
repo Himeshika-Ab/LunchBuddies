@@ -1,3 +1,10 @@
+/*
+Who's Hungry android application
+Authors - IT16067134 & IT16058910
+CTSE pair project
+Android Project
+*/
+
 package com.perera.android_app2;
 
 import android.content.Intent;
@@ -36,9 +43,6 @@ public class AddFriend extends AppCompatActivity {
 
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -64,22 +68,19 @@ public class AddFriend extends AppCompatActivity {
         buttonOnClickListners();
 
 
-
-
     }
 
+    //setting values for the widgets
     private void setValues(FriendModel fObj) {
 
         fName.setText(fObj.getFirstName());
         sName.setText(fObj.getSecondName());
         phone.setText(fObj.getPhone());
 
-
-
-
     }
 
 
+    //initialize the widgets
     public void widgetInitialize() {
         addButton = findViewById(R.id.addButton);
         fName = findViewById(R.id.firstName);
@@ -103,7 +104,7 @@ public class AddFriend extends AppCompatActivity {
                 params.put("secondName",sname);
                 params.put("phone",tel);
 
-             //  friendObj = new FriendModel(fname,sname,tel);
+
                 if(!friendObj.get_id().equals("0")){
 
                     updateFriend(params,friendObj.get_id());
@@ -134,6 +135,7 @@ public class AddFriend extends AppCompatActivity {
         });
     }
 
+    //update friend method
     private void updateFriend(RequestParams params,String id) {
 
         Log.d("friend", "inside in the UPDATE method");
@@ -157,7 +159,7 @@ public class AddFriend extends AppCompatActivity {
 
     }
 
-
+    //add friend method
     public void  addFriend(RequestParams params){
 
 

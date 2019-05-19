@@ -1,3 +1,10 @@
+/*
+Who's Hungry android application
+Authors - IT16067134 & IT16058910
+CTSE pair project
+Android Project
+*/
+
 package com.perera.android_app2;
 
 import android.content.DialogInterface;
@@ -116,18 +123,24 @@ public class AddUser extends AppCompatActivity {
 
     }
 
+    //toast to appear when clicking the save button
     public void savemsg(){
+
         Toast.makeText(this,"Successfully Updated!",Toast.LENGTH_LONG).show();
     }
 
+    //toast to appear when giving a wrong email
     public void emailmsg(){
+
         Toast.makeText(this,"Incorrect Email!",Toast.LENGTH_LONG).show();
     }
 
+    //toast to appear when the user removed successfully
     public void removemsg(){
         Toast.makeText(this,"Successfully Removed!",Toast.LENGTH_LONG).show();
     }
 
+    //method to display an alert when the user wants to remove the account
     public void removealert(){
 
 
@@ -196,7 +209,7 @@ public class AddUser extends AppCompatActivity {
         alertDialog.show();
     }
 
-
+//method to get user
     private void getUser(){
         Log.d("user", "inside in the get data");
         client = new AsyncHttpClient();
@@ -262,6 +275,7 @@ public class AddUser extends AppCompatActivity {
         });
     }
 
+    //method to update the user
     private void updateUser(RequestParams params, String id){
 
         Log.d("user", "inside in the update data");
@@ -294,7 +308,7 @@ public class AddUser extends AppCompatActivity {
 
     }
 
-
+//method to remove user
     private void removeUser(RequestParams params, String id){
 
         Log.d("user", "inside in the remove data");

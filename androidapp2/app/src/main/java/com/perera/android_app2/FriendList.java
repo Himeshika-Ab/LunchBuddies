@@ -1,3 +1,10 @@
+/*
+Who's Hungry android application
+Authors - IT16067134 & IT16058910
+CTSE pair project
+Android Project
+*/
+
 package com.perera.android_app2;
 
 import android.content.ClipData;
@@ -169,6 +176,7 @@ public class FriendList extends AppCompatActivity {
 
 
 
+//method to send sms
     private void sendSMS(int position) {
         Log.d("friend", "Sending message");
         final String name =friendList.get(position).getFirstName();
@@ -257,6 +265,7 @@ public class FriendList extends AppCompatActivity {
         getAllFriends();
     }
 
+    //method to get all the friends
     private void getAllFriends(){
         Log.d("friend", "inside in the get data");
         friendList = new ArrayList<>();
