@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ public class FriendAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return friendList.size();
+        return friendList == null ? 1 : friendList.size();
     }
 
 
@@ -49,28 +50,31 @@ public class FriendAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-
-        if (convertView == null) {
-            holder = new ViewHolder();
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            convertView = inflater.inflate(R.layout.friend_item_layout, null, true);
+        ViewHolder holder = null;
 
 
-            holder.tvname = (TextView) convertView.findViewById(R.id.name);
-            holder.tvphone = (TextView) convertView.findViewById(R.id.phone);
-
-            convertView.setTag(holder);
-        }else {
-            // the getTag returns the viewHolder object set as a tag to the view
-            holder = (ViewHolder)convertView.getTag();
-        }
+            if (convertView == null) {
+                holder = new ViewHolder();
+                LayoutInflater inflater = (LayoutInflater) context
+                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                convertView = inflater.inflate(R.layout.friend_item_layout, null, true);
 
 
-        holder.tvname.setText(friendList.get(position).getFirstName());
-        holder.tvphone.setText(friendList.get(position).getPhone());
+                holder.tvname = (TextView) convertView.findViewById(R.id.name);
+                holder.tvphone = (TextView) convertView.findViewById(R.id.phone);
+                holder.tvphoto = (ImageView) convertView.findViewById(R.id.friendIcon);
 
+                convertView.setTag(holder);
+            }
+            else {
+
+
+                holder = (ViewHolder)convertView.getTag();
+            }
+
+
+    holder.tvname.setText(friendList.get(position).getFirstName());
+    holder.tvphone.setText(friendList.get(position).getPhone());
 
 
 
@@ -80,6 +84,7 @@ public class FriendAdapter extends BaseAdapter {
     private class ViewHolder {
 
         protected TextView tvname, tvphone;
+        protected ImageView tvphoto;
 
     }
 

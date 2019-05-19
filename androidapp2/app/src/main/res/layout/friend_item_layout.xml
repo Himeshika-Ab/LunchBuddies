@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+
+    >
 
 
     <ImageView
@@ -12,8 +14,9 @@
         android:layout_height="65dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        app:srcCompat="@android:color/background_light"
-        android:elevation ="10dp"
+        android:elevation="10dp"
+        android:background="#f6f5ff"
+
         />
 
     <LinearLayout
@@ -31,6 +34,7 @@
             android:scaleType="fitStart"
             android:src="@mipmap/ic_friend"
             android:elevation ="15dp"
+
             />
 
 
@@ -47,7 +51,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1"
-            android:text="ddd"
+            android:text=""
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -56,7 +60,7 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="1"
-            android:text="ddd"
+            android:text=""
             android:textColor="@color/colorAccent" />
 
     </LinearLayout>

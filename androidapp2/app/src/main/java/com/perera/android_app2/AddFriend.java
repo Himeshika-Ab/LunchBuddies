@@ -10,6 +10,7 @@ import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
@@ -23,11 +24,11 @@ import cz.msebera.android.httpclient.Header;
 public class AddFriend extends AppCompatActivity {
 
     private Button addButton;
+
     private EditText fName;
     private EditText sName;
     private EditText phone;
     TextView toolbartxt;
-
     FriendModel friendObj;
 
     private String URL = "https://peaceful-mountain-19289.herokuapp.com/friend/";
@@ -48,7 +49,9 @@ public class AddFriend extends AppCompatActivity {
         Animation fromBottom = AnimationUtils.loadAnimation(this, R.anim.from_bottom);
         addButton = findViewById(R.id.addButton);
 
+
         addButton.setAnimation(fromBottom);
+
 
         friendObj= (FriendModel) getIntent().getSerializableExtra("id");
 
@@ -104,15 +107,28 @@ public class AddFriend extends AppCompatActivity {
                 if(!friendObj.get_id().equals("0")){
 
                     updateFriend(params,friendObj.get_id());
+                    Toast.makeText(getApplicationContext(),
+                            "Friend Updated Successfully!",
+                            Toast.LENGTH_LONG).show();
+//                    Intent intent = new Intent(AddFriend.this, FriendList.class);
+//                    startActivity(intent);
+
                 }
                 else
-                    addFriend(params);
+                {
 
-                stopService(new Intent(AddFriend.this, FriendList.class));
-                finish();
+                    addFriend(params);
+                    Log.d("friend", "inside in the add friend method");
+                    Toast.makeText(getApplicationContext(), "New friend Added!",Toast.LENGTH_LONG).show();
+//                    Intent intent = new Intent(AddFriend.this, FriendList.class);
+//                    startActivity(intent);
+
+                }
 
                 Intent intent = new Intent(AddFriend.this, FriendList.class);
                 startActivity(intent);
+
+
 
             }
         });
@@ -122,10 +138,12 @@ public class AddFriend extends AppCompatActivity {
 
         Log.d("friend", "inside in the UPDATE method");
         client = new AsyncHttpClient();
+
         client.put(URL+id, params,new JsonHttpResponseHandler(){
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
+
 
             }
 
@@ -135,18 +153,22 @@ public class AddFriend extends AppCompatActivity {
                 Log.d("friend", errorResponse.toString());
             }
         });
+
 
     }
 
 
     public void  addFriend(RequestParams params){
 
-        Log.d("friend", "inside in the add friend method");
+
+
         client = new AsyncHttpClient();
         client.post(URL, params,new JsonHttpResponseHandler(){
+
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
+
 
             }
 
@@ -157,8 +179,10 @@ public class AddFriend extends AppCompatActivity {
             }
         });
 
-
     }
+
+
+
 
 
 }

@@ -1,10 +1,12 @@
 package com.perera.android_app2;
 
 import android.content.ClipData;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.support.design.widget.FloatingActionButton;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -17,6 +19,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +29,7 @@ import com.baoyz.swipemenulistview.SwipeMenuItem;
 import com.baoyz.swipemenulistview.SwipeMenuListView;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
+import com.loopj.android.http.RequestParams;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -39,7 +43,7 @@ public class FriendList extends AppCompatActivity {
 
     private String URL = "https://peaceful-mountain-19289.herokuapp.com/friend/";
     private SwipeMenuListView listView;
-    ArrayList<FriendModel> friendList;
+    ArrayList<FriendModel> friendList= new ArrayList<>();
     AsyncHttpClient client;
     FriendModel friendObj;
     private FriendAdapter friendAdapter;
@@ -70,19 +74,23 @@ public class FriendList extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        friendList = new ArrayList<>();
         setContentView(R.layout.friendlist);
         Toolbar toolbar = findViewById(R.id.toolBar);
         setSupportActionBar(toolbar);
 
-        friendList = new ArrayList<>();
+
         listView = findViewById(R.id.lv);
         toolbartxt = findViewById(R.id.textView);
         toolbartxt.setText("Friend List");
 
 
+
+
         getAllFriends();
 
-
+        TextView emptyText = findViewById(android.R.id.empty);
+        listView.setEmptyView(emptyText);
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -148,7 +156,7 @@ public class FriendList extends AppCompatActivity {
                        sendSMS(position);
                         break;
                     case 1:
-                       removeFriend(position);
+                        removealert(position);
                         break;
                 }
                 // false : close the menu; true : not close the menu
@@ -163,8 +171,9 @@ public class FriendList extends AppCompatActivity {
 
     private void sendSMS(int position) {
         Log.d("friend", "Sending message");
+        final String name =friendList.get(position).getFirstName();
 
-        String message = "Let's go for lunch!!!! ";
+        String message = "Hi "+name+", Let's go for lunch!!!! ";
         String number = friendList.get(position).getPhone();
         try {
             SmsManager smsManager = SmsManager.getDefault();
@@ -179,8 +188,53 @@ public class FriendList extends AppCompatActivity {
             Log.d("friend", e.toString());
         }
     }
+    public void removemsg(String name){
+        Toast.makeText(this,name+",Removed!",Toast.LENGTH_LONG).show();
+    }
 
+    public void removealert(final int possition){
+
+       final String name = friendList.get(possition).getFirstName();
+        AlertDialog.Builder builder = new AlertDialog.Builder(FriendList.this);
+        builder.setMessage("Do you want to remove "+name+"?" );
+        builder.setCancelable(false);
+
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+
+                try {
+                    removeFriend(possition);
+                    removemsg(name);
+                    Intent intent = new Intent(FriendList.this, FriendList.class);
+                    startActivity(intent);
+                }
+                catch (Exception e) {
+                    e.printStackTrace();
+                    Log.d("user", e.toString());
+                }
+
+
+            }
+        });
+
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which)
+            {
+                dialog.cancel();
+            }
+        });
+
+
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+    }
     private void removeFriend(int position) {
+
         Log.d("friend", "removing friend");
 
         String id= friendList.get(position).get_id();
@@ -191,6 +245,7 @@ public class FriendList extends AppCompatActivity {
                 super.onSuccess(statusCode, headers, response);
                 getAllFriends();
 
+
             }
 
             @Override
@@ -198,13 +253,13 @@ public class FriendList extends AppCompatActivity {
                 super.onFailure(statusCode, headers, throwable, errorResponse);
             }
         });
-        Intent intent = new Intent(FriendList.this, FriendList.class);
-        startActivity(intent);
 
+        getAllFriends();
     }
 
     private void getAllFriends(){
         Log.d("friend", "inside in the get data");
+        friendList = new ArrayList<>();
         client = new AsyncHttpClient();
 
         client.get(URL, new JsonHttpResponseHandler() {
@@ -232,24 +287,27 @@ public class FriendList extends AppCompatActivity {
                             e.printStackTrace();
                             Log.d("friend", e.toString());
                         }
-                    friendAdapter = new FriendAdapter(FriendList.this,friendList);
-                    listView.setAdapter(friendAdapter);
-                    listView.setOnItemClickListener(new AdapterView.OnItemClickListener()
-                    {
+                      if(friendList.size()>=1) {
+                          friendAdapter = new FriendAdapter(FriendList.this, friendList);
+                          listView.setAdapter(friendAdapter);
 
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view,
-                                                int position, long id) {
-                            // TODO Auto-generated method stub
-                            Log.d("friend", "view list item");
-                            FriendModel f = friendList.get(position);
-                           // Toast.makeText(FriendList.this, friendList.get(position).getFirstName(), Toast.LENGTH_SHORT).show();
-                            Intent intent = new Intent(FriendList.this, AddFriend.class);
-                            intent.putExtra("id", f);
-                            FriendList.this.startActivity(intent);
+                          listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-                        }
-                    });
+                              @Override
+                              public void onItemClick(AdapterView<?> parent, View view,
+                                                      int position, long id) {
+                                  // TODO Auto-generated method stub
+                                  Log.d("friend", "view list item");
+                                  FriendModel f = friendList.get(position);
+                                  // Toast.makeText(FriendList.this, friendList.get(position).getFirstName(), Toast.LENGTH_SHORT).show();
+                                  Intent intent = new Intent(FriendList.this, AddFriend.class);
+                                  intent.putExtra("id", f);
+                                  FriendList.this.startActivity(intent);
+
+                              }
+                          });
+
+                      }
 
 
                 } catch (JSONException e) {
