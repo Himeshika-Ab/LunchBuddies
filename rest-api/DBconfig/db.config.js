@@ -1,3 +1,10 @@
+/* 
+Who's Hungry android application
+Authors - IT16067134 & IT16058910
+CTSE pair project
+Rest API
+*/
+
 const mongoose = require('mongoose');
 var UserSchema = require('../Models/UserSchema');
 var FriendSchema = require('../Models/FriendSchema')

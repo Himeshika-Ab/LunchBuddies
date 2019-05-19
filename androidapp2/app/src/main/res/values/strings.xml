@@ -1,3 +1,8 @@
+<!-- Who's Hungry android application
+   Authors - IT16067134 & IT16058910
+   CTSE pair project
+   Android Project-->
+
 <resources>
     <string name="app_name">android-app2</string>
     <string name="display_name_app">Who\'s Hungry</string>

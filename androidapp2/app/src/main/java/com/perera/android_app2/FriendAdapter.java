@@ -1,3 +1,10 @@
+/*
+Who's Hungry android application
+Authors - IT16067134 & IT16058910
+CTSE pair project
+Android Project
+*/
+
 package com.perera.android_app2;
 
 import android.content.Context;
@@ -21,32 +28,38 @@ public class FriendAdapter extends BaseAdapter {
     }
 
 
+    //method to retrieve the items
     @Override
     public Object getItem(int position) {
+
         return friendList.get(position);
     }
+    //to get the count
     @Override
     public int getViewTypeCount() {
+
         return getCount();
     }
+    //to get the position
     @Override
     public int getItemViewType(int position) {
 
         return position;
     }
-
+    //to get the size of the list
     @Override
     public int getCount() {
+
         return friendList.size();
     }
 
-
-
     @Override
     public long getItemId(int position) {
+
         return 0;
     }
 
+    //method to retrieve the view for the list view
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder;

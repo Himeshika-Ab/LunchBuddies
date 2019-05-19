@@ -1,3 +1,10 @@
+/*
+Who's Hungry android application
+Authors - IT16067134 & IT16058910
+CTSE pair project
+Android Project
+*/
+
 package com.perera.android_app2;
 
 
@@ -7,6 +14,7 @@ public class UserModel implements Serializable {
 
     private String _id,name, email, contactNo, password;
 
+    //constructors
     public UserModel() {
     }
 
@@ -22,39 +30,49 @@ public class UserModel implements Serializable {
         this.password = password;
     }
 
+    //getters and setters
     public String get_id() {
+
         return _id;
     }
 
     public String getName() {
+
         return name;
     }
 
     public String getEmail() {
+
         return email;
     }
 
     public String getContactNo() {
+
         return contactNo;
     }
 
     public String getPassword() {
+
         return password;
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public void setEmail(String email) {
+
         this.email = email;
     }
 
     public void setContactNo(String contactNo) {
+
         this.contactNo = contactNo;
     }
 
     public void setPassword(String password) {
+
         this.password = password;
     }
 }

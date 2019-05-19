@@ -1,7 +1,14 @@
+/* 
+Who's Hungry android application
+Authors - IT16067134 & IT16058910
+CTSE pair project
+Rest API
+*/
+
 const express = require('express');
 const app = express();
 var bodyParser = require('body-parser');
-//require routes
+
 const Routes = require('./MainRoutes');
 
 var Cors = require('cors');

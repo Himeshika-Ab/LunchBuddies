@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Who's Hungry android application
+   Authors - IT16067134 & IT16058910
+   CTSE pair project
+   Android Project-->
+
 <resources>
     <color name="colorPrimary">#B30015</color>
     <color name="colorWhite">#FFFFFF</color>

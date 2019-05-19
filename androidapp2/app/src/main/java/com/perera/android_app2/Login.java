@@ -1,3 +1,10 @@
+/*
+Who's Hungry android application
+Authors - IT16067134 & IT16058910
+CTSE pair project
+Android Project
+*/
+
 package com.perera.android_app2;
 
 import android.content.Intent;
@@ -69,11 +76,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-
-
                 checkLogin();
-
-
 
             }
         });
@@ -81,6 +84,7 @@ public class Login extends AppCompatActivity {
     }
 
 
+    //to check the provided credentials with the data in the db
     private void checkLogin(){
 
         Log.d("user", "inside in the get data");
@@ -151,10 +155,12 @@ public class Login extends AppCompatActivity {
         });
     }
 
+    //to display a toast when the login is successful
     private  void loginsuccess(){
         Toast.makeText(this, "Login Successfull!", Toast.LENGTH_LONG).show();
     }
 
+    //to display a toast when the email or the password is incorrect
     private  void loginerror(){
         Toast.makeText(this, "Email or Password does not match!", Toast.LENGTH_LONG).show();
     }

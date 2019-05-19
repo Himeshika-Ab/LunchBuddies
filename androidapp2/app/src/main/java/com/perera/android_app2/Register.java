@@ -1,3 +1,10 @@
+/*
+Who's Hungry android application
+Authors - IT16067134 & IT16058910
+CTSE pair project
+Android Project
+*/
+
 package com.perera.android_app2;
 
 import android.content.Intent;
@@ -106,27 +113,33 @@ public class Register extends AppCompatActivity {
 
     }
 
+    //to display a toast when the registration was successful
     public void successmessage() {
         Toast.makeText(this, "Successfully Registered!", Toast.LENGTH_LONG).show();
     }
 
+    //when the password and confirm password do not match
     public void pwmessage() {
         Toast.makeText(this, "Passwords do not match!", Toast.LENGTH_LONG).show();
     }
 
+    //when the contact number does not have 10 digits
     public void contactNomessage() {
         Toast.makeText(this, "Invalid contact Number!", Toast.LENGTH_LONG).show();
     }
 
+    //to check the email is valid
     public boolean isValid(String email) {
         String regex = "^[\\w-_\\.+]*[\\w-_\\.]\\@([\\w]+\\.)+[\\w]+[\\w]$";
         return email.matches(regex);
     }
 
+    //when the email is not valid
     public void emailmessage() {
         Toast.makeText(this, "Invalid email address!", Toast.LENGTH_LONG).show();
     }
 
+    //method to add a user
     public void  addUser(RequestParams params){
 
         Log.d("user", "inside in the add user method");

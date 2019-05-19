@@ -1,7 +1,14 @@
+/* 
+Who's Hungry android application
+Authors - IT16067134 & IT16058910
+CTSE pair project
+Rest API
+*/
+
 var mongoose = require('../DBconfig/db.config');
 var FriendSchema = mongoose.model('Friend');
-// var nodemailer = require('nodemailer');
 
+//add friend function
 var friendController = function () {
     this.addFriend = function (f) {
         console.log(f);
@@ -69,10 +76,6 @@ var friendController = function () {
         })
 
     }
-
-
-
-
 
 
 }
