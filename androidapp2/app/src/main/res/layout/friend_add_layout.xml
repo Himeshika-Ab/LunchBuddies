@@ -20,16 +20,16 @@
     <ImageView
         android:id="@+id/wallpaper2"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="match_parent"
         android:layout_alignParentTop="true"
-        android:layout_marginBottom="400dp"
+        android:layout_marginBottom="0dp"
         android:layout_marginTop="0dp"
-        android:background="@drawable/food8" />
+        android:background="@drawable/eat7" />
 
     <ImageView
         android:id="@+id/wallpaper3"
         android:layout_width="match_parent"
-        android:layout_height="420dp"
+        android:layout_height="520dp"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="60dp"
         android:layout_marginLeft="20dp"

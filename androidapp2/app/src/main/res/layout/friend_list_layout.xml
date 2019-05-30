@@ -12,7 +12,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".FriendList"
-    android:background="@color/colorWhite"
+    android:background="@drawable/bg2"
     >
 
     <include

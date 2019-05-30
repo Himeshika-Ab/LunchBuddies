@@ -10,4 +10,6 @@
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorPrimaryDark">#6D0702</color>
     <color name="colorAccent">#B30015</color>
+    <color name="startblue">#2F4F4F</color>
+    <color name="endblue">#2196F3</color>
 </resources>
