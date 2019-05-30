@@ -1,9 +1,10 @@
-/*
-Who's Hungry android application
-Authors - IT16067134 & IT16058910
-CTSE pair project
-Android Project
-*/
+/**
+ * Who's Hungry android application
+ * Authors - IT16067134 & IT16058910
+ * CTSE pair project
+ * Android Project
+ */
+
 
 package com.perera.android_app2;
 
@@ -29,71 +30,95 @@ public class FriendAdapter extends BaseAdapter {
     }
 
 
-    //method to retrieve the items
+    /**
+     * @param position
+     * @return method to retrieve the items
+     */
     @Override
     public Object getItem(int position) {
 
         return friendList.get(position);
     }
-    //to get the count
+
+
+    /**
+     * @return to get the count
+     */
     @Override
     public int getViewTypeCount() {
 
         return getCount();
     }
-    //to get the position
+
+    /**
+     * @param position
+     * @return to get the position
+     */
     @Override
     public int getItemViewType(int position) {
 
         return position;
     }
-    //to get the size of the list
 
 
+    /**
+     * @return to get the size of the list
+     */
     @Override
     public int getCount() {
         return friendList == null ? 1 : friendList.size();
     }
 
+    /**
+     * @param position
+     * @return
+     */
     @Override
     public long getItemId(int position) {
 
         return 0;
     }
 
-    //method to retrieve the view for the list view
+    /**
+     * @param position
+     * @param convertView
+     * @param parent
+     * @return method to retrieve the view for the list view
+     */
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder holder = null;
 
 
-            if (convertView == null) {
-                holder = new ViewHolder();
-                LayoutInflater inflater = (LayoutInflater) context
-                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                convertView = inflater.inflate(R.layout.friend_item_layout, null, true);
+        if (convertView == null) {
+            holder = new ViewHolder();
+            LayoutInflater inflater = (LayoutInflater) context
+                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+            convertView = inflater.inflate(R.layout.friend_item_layout, null, true);
 
 
-                holder.tvname = (TextView) convertView.findViewById(R.id.name);
-                holder.tvphone = (TextView) convertView.findViewById(R.id.phone);
-                holder.tvphoto = (ImageView) convertView.findViewById(R.id.friendIcon);
+            holder.tvname = (TextView) convertView.findViewById(R.id.name);
+            holder.tvphone = (TextView) convertView.findViewById(R.id.phone);
+            holder.tvphoto = (ImageView) convertView.findViewById(R.id.friendIcon);
 
-                convertView.setTag(holder);
-            }
-            else {
-
-
-                holder = (ViewHolder)convertView.getTag();
-            }
+            convertView.setTag(holder);
+        } else {
 
 
-    holder.tvname.setText(friendList.get(position).getFirstName());
-    holder.tvphone.setText(friendList.get(position).getPhone());
+            holder = (ViewHolder) convertView.getTag();
+        }
 
+
+        holder.tvname.setText(friendList.get(position).getFirstName());
+        holder.tvphone.setText(friendList.get(position).getPhone());
 
 
         return convertView;
     }
+
+    /**
+     * View holder class
+     */
 
     private class ViewHolder {
 

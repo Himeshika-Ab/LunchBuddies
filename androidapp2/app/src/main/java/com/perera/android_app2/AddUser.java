@@ -1,8 +1,8 @@
-/*
-Who's Hungry android application
-Authors - IT16067134 & IT16058910
-CTSE pair project
-Android Project
+/**
+* Who's Hungry android application
+* Authors - IT16067134 & IT16058910
+* CTSE pair project
+* Android Project
 */
 
 package com.perera.android_app2;
@@ -20,15 +20,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.loopj.android.http.RequestParams;
-
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-
 import cz.msebera.android.httpclient.Header;
 
 public class AddUser extends AppCompatActivity {
@@ -40,14 +37,10 @@ public class AddUser extends AppCompatActivity {
     Button usave;
     Button uremove;
     TextView toolbartxt;
-
     Animation fromBottom;
-
-    private String URL = "https://peaceful-mountain-19289.herokuapp.com/user/";
     UserModel userobj;
     AsyncHttpClient client;
-
-
+    private String URL = "https://peaceful-mountain-19289.herokuapp.com/user/";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,24 +116,36 @@ public class AddUser extends AppCompatActivity {
 
     }
 
-    //toast to appear when clicking the save button
+
+    /**
+     * toast to appear when clicking the save button
+     */
     public void savemsg(){
 
         Toast.makeText(this,"Successfully Updated!",Toast.LENGTH_LONG).show();
     }
 
-    //toast to appear when giving a wrong email
+
+    /**
+     * toast to appear when giving a wrong email
+     */
     public void emailmsg(){
 
         Toast.makeText(this,"Incorrect Email!",Toast.LENGTH_LONG).show();
     }
 
-    //toast to appear when the user removed successfully
+    /**
+     * toast to appear when the user removed successfully
+     */
     public void removemsg(){
         Toast.makeText(this,"Successfully Removed!",Toast.LENGTH_LONG).show();
     }
 
-    //method to display an alert when the user wants to remove the account
+
+
+    /**
+     *method to display an alert when the user wants to remove the account
+     */
     public void removealert(){
 
 
@@ -209,7 +214,11 @@ public class AddUser extends AppCompatActivity {
         alertDialog.show();
     }
 
-//method to get user
+
+
+    /**
+     *method to get user
+     */
     private void getUser(){
         Log.d("user", "inside in the get data");
         client = new AsyncHttpClient();
@@ -275,7 +284,14 @@ public class AddUser extends AppCompatActivity {
         });
     }
 
-    //method to update the user
+
+
+    /**
+     *
+     * @param params
+     * @param id
+     * method to update the user
+     */
     private void updateUser(RequestParams params, String id){
 
         Log.d("user", "inside in the update data");
@@ -308,7 +324,14 @@ public class AddUser extends AppCompatActivity {
 
     }
 
-//method to remove user
+
+
+    /**
+     *
+     * @param params
+     * @param id
+     * method to remove user
+     */
     private void removeUser(RequestParams params, String id){
 
         Log.d("user", "inside in the remove data");

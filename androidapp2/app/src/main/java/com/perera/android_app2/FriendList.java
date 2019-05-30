@@ -1,9 +1,9 @@
-/*
-Who's Hungry android application
-Authors - IT16067134 & IT16058910
-CTSE pair project
-Android Project
-*/
+/**
+ * Who's Hungry android application
+ * Authors - IT16067134 & IT16058910
+ * CTSE pair project
+ * Android Project
+ */
 
 package com.perera.android_app2;
 
@@ -48,13 +48,13 @@ import cz.msebera.android.httpclient.Header;
 
 public class FriendList extends AppCompatActivity {
 
-    private String URL = "https://peaceful-mountain-19289.herokuapp.com/friend/";
-    private SwipeMenuListView listView;
-    ArrayList<FriendModel> friendList= new ArrayList<>();
+    ArrayList<FriendModel> friendList = new ArrayList<>();
     AsyncHttpClient client;
     FriendModel friendObj;
-    private FriendAdapter friendAdapter;
     TextView toolbartxt;
+    private String URL = "https://peaceful-mountain-19289.herokuapp.com/friend/";
+    private SwipeMenuListView listView;
+    private FriendAdapter friendAdapter;
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -67,8 +67,7 @@ public class FriendList extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.user_info:
-            {
+            case R.id.user_info: {
                 Intent intent = new Intent(FriendList.this, AddUser.class);
                 startActivity(intent);
             }
@@ -92,8 +91,6 @@ public class FriendList extends AppCompatActivity {
         toolbartxt.setText("Friend List");
 
 
-
-
         getAllFriends();
 
         TextView emptyText = findViewById(android.R.id.empty);
@@ -113,11 +110,7 @@ public class FriendList extends AppCompatActivity {
         });
 
 
-
-
-
-
-     SwipeMenuCreator creator = new SwipeMenuCreator() {
+        SwipeMenuCreator creator = new SwipeMenuCreator() {
 
             @Override
             public void create(SwipeMenu menu) {
@@ -150,9 +143,8 @@ public class FriendList extends AppCompatActivity {
             }
         };
 
-// set creator
+        // set creator
         listView.setMenuCreator(creator);
-
 
 
         listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
@@ -160,7 +152,7 @@ public class FriendList extends AppCompatActivity {
             public boolean onMenuItemClick(int position, SwipeMenu menu, int index) {
                 switch (index) {
                     case 0:
-                       sendSMS(position);
+                        sendSMS(position);
                         break;
                     case 1:
                         removealert(position);
@@ -172,16 +164,19 @@ public class FriendList extends AppCompatActivity {
         });
 
 
-}
+    }
 
 
-
-//method to send sms
+    /**
+     *
+     * @param position
+     * method to send sms
+     */
     private void sendSMS(int position) {
         Log.d("friend", "Sending message");
-        final String name =friendList.get(position).getFirstName();
+        final String name = friendList.get(position).getFirstName();
 
-        String message = "Hi "+name+", Let's go for lunch!!!! ";
+        String message = "Hi " + name + ", Let's go for lunch!!!! ";
         String number = friendList.get(position).getPhone();
         try {
             SmsManager smsManager = SmsManager.getDefault();
@@ -196,30 +191,37 @@ public class FriendList extends AppCompatActivity {
             Log.d("friend", e.toString());
         }
     }
-    public void removemsg(String name){
-        Toast.makeText(this,name+",Removed!",Toast.LENGTH_LONG).show();
+
+    /**
+     *
+     * @param name
+     */
+    public void removemsg(String name) {
+        Toast.makeText(this, name + ",Removed!", Toast.LENGTH_LONG).show();
     }
 
-    public void removealert(final int possition){
+    /**
+     *
+     * @param possition
+     */
+    public void removealert(final int possition) {
 
-       final String name = friendList.get(possition).getFirstName();
+        final String name = friendList.get(possition).getFirstName();
         AlertDialog.Builder builder = new AlertDialog.Builder(FriendList.this);
-        builder.setMessage("Do you want to remove "+name+"?" );
+        builder.setMessage("Do you want to remove " + name + "?");
         builder.setCancelable(false);
 
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
             @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
+            public void onClick(DialogInterface dialog, int which) {
 
                 try {
                     removeFriend(possition);
                     removemsg(name);
                     Intent intent = new Intent(FriendList.this, FriendList.class);
                     startActivity(intent);
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     e.printStackTrace();
                     Log.d("user", e.toString());
                 }
@@ -231,8 +233,7 @@ public class FriendList extends AppCompatActivity {
         builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
 
             @Override
-            public void onClick(DialogInterface dialog, int which)
-            {
+            public void onClick(DialogInterface dialog, int which) {
                 dialog.cancel();
             }
         });
@@ -241,13 +242,19 @@ public class FriendList extends AppCompatActivity {
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
     }
+
+    /**
+     *
+     * @param position
+     * method to remove friend from friend list
+     */
     private void removeFriend(int position) {
 
         Log.d("friend", "removing friend");
 
-        String id= friendList.get(position).get_id();
+        String id = friendList.get(position).get_id();
         client = new AsyncHttpClient();
-        client.delete(URL+id,new JsonHttpResponseHandler(){
+        client.delete(URL + id, new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 super.onSuccess(statusCode, headers, response);
@@ -265,8 +272,11 @@ public class FriendList extends AppCompatActivity {
         getAllFriends();
     }
 
-    //method to get all the friends
-    private void getAllFriends(){
+
+    /**
+     * method to get all the friends
+     */
+    private void getAllFriends() {
         Log.d("friend", "inside in the get data");
         friendList = new ArrayList<>();
         client = new AsyncHttpClient();
@@ -277,14 +287,14 @@ public class FriendList extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
                 Log.d("friend", response.toString());
                 super.onSuccess(statusCode, headers, response);
-                try{
+                try {
                     JSONArray jArray = response.getJSONArray("data");
 
-                    for(int i=0;i<jArray.length();i++)
+                    for (int i = 0; i < jArray.length(); i++)
                         try {
 
                             JSONObject obj = jArray.getJSONObject(i);
-                            friendObj= new FriendModel(
+                            friendObj = new FriendModel(
                                     obj.getString("_id"),
                                     obj.getString("firstName"),
                                     obj.getString("secondName"),
@@ -296,27 +306,27 @@ public class FriendList extends AppCompatActivity {
                             e.printStackTrace();
                             Log.d("friend", e.toString());
                         }
-                      if(friendList.size()>=1) {
-                          friendAdapter = new FriendAdapter(FriendList.this, friendList);
-                          listView.setAdapter(friendAdapter);
+                    if (friendList.size() >= 1) {
+                        friendAdapter = new FriendAdapter(FriendList.this, friendList);
+                        listView.setAdapter(friendAdapter);
 
-                          listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 
-                              @Override
-                              public void onItemClick(AdapterView<?> parent, View view,
-                                                      int position, long id) {
-                                  // TODO Auto-generated method stub
-                                  Log.d("friend", "view list item");
-                                  FriendModel f = friendList.get(position);
-                                  // Toast.makeText(FriendList.this, friendList.get(position).getFirstName(), Toast.LENGTH_SHORT).show();
-                                  Intent intent = new Intent(FriendList.this, AddFriend.class);
-                                  intent.putExtra("id", f);
-                                  FriendList.this.startActivity(intent);
+                            @Override
+                            public void onItemClick(AdapterView<?> parent, View view,
+                                                    int position, long id) {
+                                // TODO Auto-generated method stub
+                                Log.d("friend", "view list item");
+                                FriendModel f = friendList.get(position);
+                                // Toast.makeText(FriendList.this, friendList.get(position).getFirstName(), Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent(FriendList.this, AddFriend.class);
+                                intent.putExtra("id", f);
+                                FriendList.this.startActivity(intent);
 
-                              }
-                          });
+                            }
+                        });
 
-                      }
+                    }
 
 
                 } catch (JSONException e) {
@@ -334,12 +344,9 @@ public class FriendList extends AppCompatActivity {
     }
 
 
-
-
     @Override
     protected void onResume() {
         super.onResume();
-        //getAllFriends();
 
     }
 
@@ -348,7 +355,6 @@ public class FriendList extends AppCompatActivity {
 
         super.onDestroy();
     }
-
 
 
 }
